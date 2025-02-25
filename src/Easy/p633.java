@@ -20,20 +20,19 @@ public class p633 {
 				if(!noRepes.add(scanner.next())) {
 					repes++;
 				}
-				/*
-				foreach(String ainmal : noRepes);
+/*
+				for(String ainmal : noRepes);
 				{
 					String parella;
 					if(animal.endsWith("a")) {
 						parella = animal.Substring(0, (animal.length()-1)+"o");
 						if(noRepes.contains(parella)) {
-							parelles++;
+							parejas++;
 							
 						}
 					}
 						
-				}
-				*/
+				}*/
 				
 			}
 			
