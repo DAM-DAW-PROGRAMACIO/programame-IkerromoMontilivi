@@ -39,7 +39,7 @@ public class p611 {
 			else
 				System.out.println(obraSir);
 			if(scanner.hasNext())
-				line = scanner.next();
+				line = scanner.next().trim();
 		}
 		scanner.close();
 	}

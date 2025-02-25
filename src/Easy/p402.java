@@ -27,6 +27,10 @@ public class p402 {
 						else
 							llarg = numero/n;
 					}
+				
+				
+				
+				
 				}
 					
 			}
