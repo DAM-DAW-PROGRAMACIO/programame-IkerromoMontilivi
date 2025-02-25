@@ -2,6 +2,7 @@ package Easy;
 
 import java.util.Scanner;
 
+import java.util.Arrays;
 public class p409 {
 
 	public static void main(String[] args) throws Exception {
@@ -12,29 +13,27 @@ public class p409 {
 			scanner.useDelimiter("\\s+");
 			int nPP = scanner.nextInt();
 			int nPersones = scanner.nextInt();
-			int[] altures = new int[nPersones];
-			double mitja = 0;
+			int[] alturas = new int[nPersones];
+			for(int j = 0; j <nPersones ; j++)
+				alturas[j] = scanner.nextInt();
 			
-			//Mal, hacer grupos de 15 en 15 x piso
-			for(int j = 0; j < nPersones; j++) {
-				altures[j] = scanner.nextInt();
-				mitja += altures[j];
-			}
-			mitja = mitja /nPersones;
-			
-			int aptas = 0;
-			for(int j=0; j < nPersones; j++) {
-				if(altures[j] < mitja+7.5 && altures[j] > mitja-7.5) {
-					aptas++;
+			Arrays.sort(alturas);
+			int j = 0;
+			int cont = 0;
+			while(j < nPersones - (nPP -1)) {
+				if((alturas[j + (nPP -1)] - alturas[j] <= 15)) {
+					cont++;
+					j += nPP;
+				}
+				
+				else {
+					j++;
 				}
 			}
 			
-			for(int j = aptas; j >= nPP; j--) {
-				if(j%nPP == 0) {
-					System.out.println(j/nPP);
-					break;
-				}
-			}
+			
+			
+			System.out.println(cont);
 		}
 		scanner.close();
 	}

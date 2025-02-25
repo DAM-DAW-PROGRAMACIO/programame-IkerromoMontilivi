@@ -10,6 +10,7 @@
 			
 			while (!line.equals("0")) {
 				boolean dalton = true;
+				boolean daltonR = true;
 				int nHermanos = Integer.parseInt(line);
 				if(nHermanos > 0) {
 					scanner.useDelimiter("\\s+");
@@ -18,16 +19,28 @@
 					for (int i = 0; i < nHermanos; i++)
 						numeros[i] = scanner.nextInt();
 					
-					for(int i = 0; i < nHermanos-1; i++)
+					for(int i = 0; i < nHermanos-1; i++) {
 						if(numeros[i] >= numeros[i+1]) {
 							dalton = false;
 							break;
-						}
+						}	
+					}
+					
+					for(int i = 0; i < nHermanos - 1; i++) {
+						if(numeros[i] <= numeros[i+1]) {
+							daltonR = false;
+							break;
+						}	
+					}
 				}
-				else
+						
+				else {
 					dalton = false;
+					daltonR = false;
+				}
+					
 				
-				if(dalton)
+				if(dalton || daltonR)
 					System.out.println("DALTON");
 				else
 					System.out.println("DESCONOCIDOS");
