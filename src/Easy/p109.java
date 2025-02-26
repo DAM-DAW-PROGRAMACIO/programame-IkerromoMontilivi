@@ -14,7 +14,7 @@ public class p109 {
 			HashSet<String> equiposNombres = new HashSet<>();
 			List<equipo> equipos = new ArrayList<>();
 			int nElem = 0;
-			int pJugadosLiga = 0;
+			long pJugadosLiga = 0;
 			while(true) {
 				int indEquipo1 = 0;
 				int indEquipo2 = 0;
@@ -108,7 +108,7 @@ public class p109 {
 class equipo{
 	private String nombre;
 	private long puntos;
-	private int pJugados;
+	private long pJugados;
 	
 	public equipo(String nombre) {
 		this.nombre = nombre;
@@ -134,7 +134,7 @@ class equipo{
 		puntos += p;
 	}
 	
-	public int GetpJugados() {
+	public long GetpJugados() {
 		return pJugados;
 	}
 	

@@ -1,30 +1,26 @@
 package Easy;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class p764 {
 
 	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
-		BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
-		String line = br.readLine();
-		
-		while (line != null && !line.startsWith("0")) {
-			
+		Scanner scanner = new Scanner(System.in);
+		String line = scanner.next();
+		while (!line.equals("0")) {
 			int total = 0;
-			int nCamps = Integer.parseInt(line);
+			int sumar;
+			int restar;
+			for(int i = 0; i < Integer.parseInt(line); i++) {
+				sumar = scanner.nextInt();
+				restar = scanner.nextInt();
 				
-			for (int i = 0; i < nCamps; i++){
-					
-				line = br.readLine();
-				String campaign[] = line.split(" ");
-				total += (Integer.parseInt(campaign[0]) - Integer.parseInt(campaign[1]));
+				total += (sumar-restar);
 			}
-				
+			
 			System.out.println(total);
-				
-			line = br.readLine();
+			line = scanner.next();
 		}
+		scanner.close();
 	}
 }

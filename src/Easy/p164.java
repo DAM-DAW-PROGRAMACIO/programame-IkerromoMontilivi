@@ -6,11 +6,15 @@ public class p164 {
 
 	public static void main(String[] args) throws Exception {
 		Scanner scanner = new Scanner(System.in);
-		String line = scanner.nextLine();
-		
-		while (!line.isEmpty()) {
+		while (true) {
+			int x1 = scanner.nextInt();
+			int y1 = scanner.nextInt();
+			int x2 = scanner.nextInt();
+			int y2 = scanner.nextInt();
 			
-			line = scanner.nextLine();
+			if(x2 < x1 || y2 < y1)
+				break;
+			System.out.println((x2-x1)*(y2-y1));
 		}
 		scanner.close();
 	}

@@ -10,33 +10,31 @@ public class p633 {
 		Scanner scanner = new Scanner(System.in);
 		String linea = scanner.nextLine();
 		
-		while (!linea.isEmpty()) {
+		while (!linea.equals("0")) {
 			int parejas = 0;
-			int parejasInc = 0;
 			int repes = 0;
+			int solteros = 0;
 			HashSet<String> noRepes = new HashSet<String>();
 			for(int i = 0; i< Integer.parseInt(linea); i++) {
-				scanner.useDelimiter("\\s+");
-				if(!noRepes.add(scanner.next())) {
+				if(!noRepes.add(scanner.next()))
 					repes++;
-				}
-/*
-				for(String ainmal : noRepes);
-				{
-					String parella;
-					if(animal.endsWith("a")) {
-						parella = animal.Substring(0, (animal.length()-1)+"o");
-						if(noRepes.contains(parella)) {
-							parejas++;
-							
-						}
-					}
-						
-				}*/
-				
+			}
+			for(String animal : noRepes)
+			{
+				String parella = null;
+				if(animal.endsWith("a")) 
+					parella = animal.substring(0, (animal.length()-1)) + "o";
+				if(animal.endsWith("o")) 
+					parella = animal.substring(0, (animal.length()-1)) + "a";
+				if(noRepes.contains(parella)) 
+					parejas++;
+				else
+					solteros++;
 			}
 			
-			linea = scanner.nextLine();
+			System.out.println(parejas/2 + " " + solteros + " " + repes);
+			
+			linea = scanner.next();
 		}
 		scanner.close();
 	}

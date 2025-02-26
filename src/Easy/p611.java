@@ -13,7 +13,7 @@ public class p611 {
 			scanner.nextLine();
 
 			long nVeces = scanner.nextLong();
-			int anoObraSir = 10001;
+			int anoObraSir = Integer.MAX_VALUE;
 			String obraSir = null;
 			int cont = 0;
 			if(nVeces > 0) {
