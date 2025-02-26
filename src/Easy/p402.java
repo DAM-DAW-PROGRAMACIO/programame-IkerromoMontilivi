@@ -13,28 +13,18 @@ public class p402 {
 		
 		while(!line.equals("0")){
 			int numero = Integer.parseInt(line);
-			int llarg = numero;
-			int diffMin = numero-1;
-			int n = 1;
-
-			while (numero/2 > n) {
-				n++;
-				if (numero % n == 0) {
-					if(Math.abs(n - numero/n) < diffMin) {
-						diffMin = Math.abs(n - numero/n);
-						if(n > numero/n)
-							llarg = n;
-						else
-							llarg = numero/n;
-					}
+			int arriba = numero;
+			int arrel = (int) Math.sqrt(numero);
 				
-				
-				
-				
+			for(int i = 2; i <= arrel; i++) {
+				if(numero%i == 0) {
+					arriba = numero/i;
 				}
-					
 			}
-			System.out.println(llarg);
+			
+			System.out.println(arriba);
+			
+			
 			line = br.readLine();
 		}
 	}
