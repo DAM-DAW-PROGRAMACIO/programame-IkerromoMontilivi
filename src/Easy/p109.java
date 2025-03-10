@@ -14,7 +14,8 @@ public class p109 {
 			HashSet<String> equiposNombres = new HashSet<>();
 			List<equipo> equipos = new ArrayList<>();
 			int nElem = 0;
-			long pJugadosLiga = 0;
+			
+			long pJugadosLigaReal = 0;
 			while(true) {
 				int indEquipo1 = 0;
 				int indEquipo2 = 0;
@@ -72,9 +73,8 @@ public class p109 {
 					equipos.get(indEquipo2).PuntosMas(2);
 					equipos.get(indEquipo1).PuntosMas(1);
 				}
-				equipos.get(indEquipo1).PJugado();
-				equipos.get(indEquipo2).PJugado();
-				pJugadosLiga++;
+
+				pJugadosLigaReal++;
 			}
 			equipo EquipoG = new equipo();
 			boolean Empate = false;
@@ -84,19 +84,22 @@ public class p109 {
 					Empate = false;
 				}
 				
-				else if(equipos.get(i).GetPuntos() == EquipoG.GetPuntos() && equipos.get(i).GetpJugados() == EquipoG.GetpJugados())
+				else if(equipos.get(i).GetPuntos() == EquipoG.GetPuntos())
 					Empate = true;
 				
-				else if(equipos.get(i).GetPuntos() == EquipoG.GetPuntos() && equipos.get(i).GetpJugados() < EquipoG.GetpJugados()) {
+				else if(equipos.get(i).GetPuntos() == EquipoG.GetPuntos()) {
 					EquipoG = equipos.get(i);
 					Empate = false;
 				}
 			}
 			
+			long pJugadosSupuestos = equipos.size() * (equipos.size()-1);
+			long pRestantes = pJugadosSupuestos - pJugadosLigaReal;
+			
 			if(Empate)
-				System.out.println("EMPATE 0");
+				System.out.println("EMPATE " + pRestantes);
 			else
-			System.out.println(EquipoG.Nombre() + " " + (pJugadosLiga - EquipoG.GetpJugados())/2);
+			System.out.println(EquipoG.Nombre() + " " + pRestantes);
 			
 			line = scanner.next();
 		}
@@ -108,18 +111,16 @@ public class p109 {
 class equipo{
 	private String nombre;
 	private long puntos;
-	private long pJugados;
 	
 	public equipo(String nombre) {
 		this.nombre = nombre;
 		puntos = 0;
-		pJugados = 0;
 	}
 	
 	public equipo() {
 		this.nombre = null;
 		puntos = 0;
-		pJugados = 0;
+
 	}
 	
 	public String Nombre(){
@@ -134,12 +135,5 @@ class equipo{
 		puntos += p;
 	}
 	
-	public long GetpJugados() {
-		return pJugados;
-	}
-	
-	public void PJugado() {
-		pJugados++;
-	}
 }
 

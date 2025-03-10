@@ -7,11 +7,10 @@ public class p536 {
 
 	public static void main(String[] args) throws Exception {
 		Scanner scanner = new Scanner(System.in);
-		String nVeces = scanner.nextLine();
+		String nVeces;
 		
-		while (true) {	
-			if (nVeces.isEmpty())
-			    break;
+		while (scanner.hasNextLine()) {	
+			nVeces = scanner.nextLine();
 
 			Huerto huertos[] = new Huerto[Integer.parseInt(nVeces)];
 			for(int i = 0; i < Integer.parseInt(nVeces); i++) {
@@ -54,7 +53,7 @@ public class p536 {
 			}
 			
 			System.out.println(max.Nombre());
-			nVeces = scanner.nextLine();
+
 		}
 	
 		scanner.close();

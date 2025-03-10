@@ -6,9 +6,10 @@ public class p611 {
 
 	public static void main(String[] args) throws Exception {
 		Scanner scanner = new Scanner(System.in);
-		String line = scanner.next();
+		String line;
 		
-		while (!line.isEmpty()) {
+		while (scanner.hasNext()) {
+			line = scanner.next().trim();
 			int ano = Integer.parseInt(line);
 			scanner.nextLine();
 
@@ -38,8 +39,6 @@ public class p611 {
 			}
 			else
 				System.out.println(obraSir);
-			if(scanner.hasNext())
-				line = scanner.next().trim();
 		}
 		scanner.close();
 	}

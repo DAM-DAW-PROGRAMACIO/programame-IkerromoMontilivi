@@ -5,13 +5,12 @@ import java.util.Scanner;
 public class p000 {
 
 	public static void main(String[] args) throws Exception {
-		Scanner scanner = new Scanner(System.in);
-		String line = scanner.next();
-		
-		while (!line.isEmpty()) {
+		Scanner sc = new Scanner(System.in);
+		String line = sc.next();
+		while (sc.hasNext()) {
 			
-			line = scanner.next();
+			line = sc.next();
 		}
-		scanner.close();
+		sc.close();
 	}
 }
