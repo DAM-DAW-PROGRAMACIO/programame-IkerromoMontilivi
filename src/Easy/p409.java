@@ -16,7 +16,7 @@ public class p409 {
 			int[] alturas = new int[nPersones];
 			for(int j = 0; j <nPersones ; j++)
 				alturas[j] = scanner.nextInt();
-			
+		
 			Arrays.sort(alturas);
 			int j = 0;
 			int cont = 0;

@@ -10,7 +10,7 @@ public class p238 {
 		Scanner scanner = new Scanner(System.in);
 		int billetes = scanner.nextInt();
 		int piratas = scanner.nextInt();
-		
+	
 		while (billetes >= 1 || piratas >= 1) {
 			int n = 0;
 			Pirata[] piratasL = new Pirata[piratas];

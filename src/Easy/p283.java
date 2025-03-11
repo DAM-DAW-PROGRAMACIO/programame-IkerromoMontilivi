@@ -19,7 +19,7 @@ public class p283 {
 					check[i][j] = false;
 				}
 			}
-			
+		
 			Check tabla = new Check(check, F, C);
 			
 			int countMax = 0;

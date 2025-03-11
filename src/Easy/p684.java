@@ -139,7 +139,7 @@ class Ring {
 				suma++;
 			}
 		}
-		
+	
 	}
 	
 	//Constructor de rings sense numero, per al Next i el Prev

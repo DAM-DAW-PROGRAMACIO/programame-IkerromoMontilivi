@@ -13,18 +13,18 @@ public class p402 {
 		
 		while(!line.equals("0")){
 			int numero = Integer.parseInt(line);
-			int arriba = numero;
+			List<Integer> divisors = new ArrayList<Integer>();
 			int arrel = (int) Math.sqrt(numero);
-				
+			
 			for(int i = 2; i <= arrel; i++) {
 				if(numero%i == 0) {
-					arriba = numero/i;
+					divisors.add(numero/i);
+					int parella = numero/i;
+					if(parella != numero/i)
+						divisors.add(numero/parella);
 				}
 			}
-			
-			System.out.println(arriba);
-			
-			
+						
 			line = br.readLine();
 		}
 	}

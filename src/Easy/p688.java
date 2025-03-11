@@ -27,6 +27,7 @@ public class p688 {
 				}
 				else {
 					if(Math.abs(alt - altAnt) > c) {
+						sc.nextLine();
 						ok = false;
 						break;
 					}
@@ -38,6 +39,7 @@ public class p688 {
 					
 					if(altMax - altMin > m) {
 						ok = false;
+						sc.nextLine();
 						break;
 					}
 				}

@@ -9,7 +9,7 @@ public class hola {
 		
 		Scanner sc = new Scanner(System.in);
 		String line = sc.nextLine();
-		System.out.println(line.replace(" ", ", \""));
+		System.out.println("\"" +line.replace(" ", "\", \"")+"\"");
 		sc.close();
 	}
 
