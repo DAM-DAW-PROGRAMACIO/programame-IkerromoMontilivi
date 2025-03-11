@@ -6,39 +6,34 @@ public class p245 {
 
 	public static void main(String[] args) throws Exception {
 		Scanner scanner = new Scanner(System.in);
-		String line = scanner.nextLine();
+		Long nHermanos = scanner.nextLong();
 		
-		while (!line.equals("0")) {
+		while (nHermanos != 0) {
 			boolean dalton = true;
 			boolean daltonR = true;
-			int nHermanos = Integer.parseInt(line);
-
-			scanner.useDelimiter("\\s+");
-			int numeros[] = new int[nHermanos];
 			
-			for (int i = 0; i < nHermanos; i++)
-				numeros[i] = scanner.nextInt();
-			scanner.nextLine();
+			long hermanoAnt = scanner.nextLong();
 			for(int i = 0; i < nHermanos-1; i++) {
-				if(numeros[i] >= numeros[i+1]) {
+				long hermanoAct = scanner.nextLong();
+				if(hermanoAnt >= hermanoAct)
 					dalton = false;
-					break;
-				}	
-			}
-			
-			for(int i = 0; i < nHermanos - 1; i++) {
-				if(numeros[i] <= numeros[i+1]) {
+				
+				if(hermanoAnt <= hermanoAct)
 					daltonR = false;
+				
+				if(!(dalton || daltonR))
 					break;
-				}	
+				
+				hermanoAnt = hermanoAct;
 			}
+			scanner.nextLine();
 
 
 			if(dalton || daltonR)
 				System.out.println("DALTON");
 			else
 				System.out.println("DESCONOCIDOS");
-			line = scanner.nextLine();
+			nHermanos = scanner.nextLong();
 			
 		}
 		scanner.close();

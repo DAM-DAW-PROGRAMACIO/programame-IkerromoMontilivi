@@ -6,57 +6,34 @@ import java.util.ArrayList;
 public class p536 {
 
 	public static void main(String[] args) throws Exception {
-		Scanner scanner = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		String nVeces;
 		
-		while (scanner.hasNextLine()) {	
-			nVeces = scanner.nextLine();
+		while(sc.hasNextLine()) {	
+			nVeces = sc.nextLine();
 
-			Huerto huertos[] = new Huerto[Integer.parseInt(nVeces)];
-			for(int i = 0; i < Integer.parseInt(nVeces); i++) {
-				String line = scanner.nextLine();
-				Scanner lineaActual = new Scanner(line);
-				
-				lineaActual.useDelimiter("\\s+");
-				int tamano = lineaActual.nextInt();
-				int abono = lineaActual.nextInt();
-				int agua = lineaActual.nextInt();
-				int distancia = lineaActual.nextInt();
-				StringBuilder nombre = new StringBuilder();
-				while(lineaActual.hasNext()) {
-					nombre.append(lineaActual.next()).append(" ");
-				}
-				String nombreString = nombre.toString().trim();
+			Huerto max = new Huerto();
+			for(int i = 0; i < Integer.parseInt(nVeces); i++) {		
+				int tamano = sc.nextInt();
+				int abono = sc.nextInt();
+				int agua = sc.nextInt();
+				int distancia = sc.nextInt();
+				String nombre = sc.nextLine();
 
-				huertos[i] = new Huerto(nombreString, tamano, agua, abono, distancia);
-				lineaActual.close();
-			}
-			Huerto max = huertos[0];
-			for(int i = 1; i < Integer.parseInt(nVeces); i++)
-			{
-				if(huertos[i].Tamano() > max.Tamano()) {
-					max = huertos[i];
+				Huerto actual = new Huerto(nombre, tamano, agua, abono, distancia);
+				if(i == 0) {
+					max = actual;
 				}
-				else if (huertos[i].Tamano() == max.Tamano()) {
-					if(huertos[i].Agua() < max.Agua()) {
-						max = huertos[i];
-					}
-					else if(huertos[i].Agua() == max.Agua()) {
-						if(huertos[i].Distancia() < max.Distancia())
-							max = huertos[i];
-						else if(huertos[i].Distancia() == max.Distancia())
-							if(huertos[i].Abono() < max.Abono())
-								max = huertos[i];
-					}
+				else {
+					max = actual.CompareTo(max);
 				}
-				
+					
 			}
-			
-			System.out.println(max.Nombre());
+			System.out.println(max.Nombre().trim());
 
 		}
 	
-		scanner.close();
+		sc.close();
 		
 	}
 }
@@ -74,6 +51,9 @@ class Huerto {
 		this.agua = agua;
 		this.abono = abono;
 		this.distancia = distancia;
+	}
+	
+	public Huerto() {
 	}
 	
 	public String Nombre() {
@@ -94,5 +74,24 @@ class Huerto {
 	public int Distancia() {
 		return this.distancia;
 	}
-
+	
+	public Huerto CompareTo(Huerto max) {
+		if(Tamano() > max.Tamano()) {
+			max = this;
+		}
+		else if (Tamano() == max.Tamano()) {
+			if(Agua() < max.Agua()) {
+				max = this;
+			}
+			else if(Agua() == max.Agua()) {
+				if(Distancia() < max.Distancia())
+					max = this;
+				else if(Distancia() == max.Distancia())
+					if(Abono() < max.Abono())
+						max = this;
+			}
+		}
+		
+		return max;
+	}
 }
